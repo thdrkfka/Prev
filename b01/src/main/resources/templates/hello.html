@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>hello.html</title>
+</head>
+<body>
+<!--controller에서 가져옴. model.addAttribute("msg", "Hello World") 때문에 출력-->
+    <h1 th:text="${msg}"></h1>
+
+<!--html 에서 변수를 선언해서 값을 저장받아서 출력 가능-->
+    <div th:with="num1 = ${10}, num2= ${20}">
+        <h4 th:text="${num1+num2}"></h4>
+    </div>
+
+
+    <!--  /ex/ex1 에서 쿼리스트링을 ()을 이용해서 파라미터의 이름과 값을 지정함. 쿼리스트링의 이름과 값을 param.을 통해 값을 불러옴.  -->
+        <h1 th:text="${param.name} +' '+ ${param.age}"></h1>
+    <!--<h1 th:text="${param.name}"></h1>-->
+    <!--<h1 th:text="${param.age}"></h1>-->
+
+    <h4>[[${param.types}]]</h4>
+
+<!--
+    <h3 th:each="${sos}">SOS</h3>
+
+    ${aaaa+bbb}-->
+
+<!--/*<div>
+    <h1>AAAA</h1>
+</div>*/-->
+</body>
+</html>

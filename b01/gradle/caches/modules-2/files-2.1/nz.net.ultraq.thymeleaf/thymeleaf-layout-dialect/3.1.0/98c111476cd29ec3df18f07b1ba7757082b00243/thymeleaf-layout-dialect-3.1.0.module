@@ -1,0 +1,119 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "nz.net.ultraq.thymeleaf",
+    "module": "thymeleaf-layout-dialect",
+    "version": "3.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.3.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.groovy",
+          "module": "groovy",
+          "version": {
+            "requires": "4.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "thymeleaf-layout-dialect-3.1.0.jar",
+          "url": "thymeleaf-layout-dialect-3.1.0.jar",
+          "size": 192381,
+          "sha512": "e3ebbbf8b9f361e74c377117c707cd8cc71318c1c8c8e836f1dce29acba8f02b2e91024f136138a30a8ebb21d9d5b1c1120ddfbec19c0aed0459a82d7539dd5b",
+          "sha256": "463f2154598d3a481bdddc1439f5c2ba4ede61ece7686e6d845ce8918b08c53a",
+          "sha1": "a3f0e5a1c458b104c0e90efb1cb513e3eaf99d71",
+          "md5": "be6d2e7e347de8709c10f693871e825e"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "nz.net.ultraq.groovy",
+          "module": "groovy-extensions",
+          "version": {
+            "requires": "2.0.0"
+          }
+        },
+        {
+          "group": "nz.net.ultraq.thymeleaf",
+          "module": "thymeleaf-expression-processor",
+          "version": {
+            "requires": "3.1.0"
+          }
+        },
+        {
+          "group": "org.thymeleaf",
+          "module": "thymeleaf",
+          "version": {
+            "requires": "3.0.15.RELEASE"
+          }
+        },
+        {
+          "group": "org.apache.groovy",
+          "module": "groovy",
+          "version": {
+            "requires": "4.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "thymeleaf-layout-dialect-3.1.0.jar",
+          "url": "thymeleaf-layout-dialect-3.1.0.jar",
+          "size": 192381,
+          "sha512": "e3ebbbf8b9f361e74c377117c707cd8cc71318c1c8c8e836f1dce29acba8f02b2e91024f136138a30a8ebb21d9d5b1c1120ddfbec19c0aed0459a82d7539dd5b",
+          "sha256": "463f2154598d3a481bdddc1439f5c2ba4ede61ece7686e6d845ce8918b08c53a",
+          "sha1": "a3f0e5a1c458b104c0e90efb1cb513e3eaf99d71",
+          "md5": "be6d2e7e347de8709c10f693871e825e"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "thymeleaf-layout-dialect-3.1.0-sources.jar",
+          "url": "thymeleaf-layout-dialect-3.1.0-sources.jar",
+          "size": 59491,
+          "sha512": "5c05e96398146185c22fbc87b48b4938afd7112752ac3c14dab930f68510bb2c7b78bb1c5081ecc4d77ddfd112615426a3455238640ac54f50a184c28c8e9049",
+          "sha256": "33a072b0b1cb4de843029ffe9cb2ed04453899775ae72d2b8d5188cdc628bf3e",
+          "sha1": "aa709ec4735252218bdc20aaa9e13c6831b99739",
+          "md5": "7a2c7bf17a67f680a0f25b767ef2a1b4"
+        }
+      ]
+    }
+  ]
+}
