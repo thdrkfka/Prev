@@ -1,0 +1,78 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-aspects",
+    "version": "5.3.13",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.aspectj",
+          "module": "aspectjweaver",
+          "version": {
+            "requires": "1.9.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-aspects-5.3.13.jar",
+          "url": "spring-aspects-5.3.13.jar",
+          "size": 47230,
+          "sha512": "1c556b2fe11eefac7d0e9e714690550184126ea1e16499d39833902b121bf1b1cd2d1cddd1593594bb744d4b006a55f411045cd366f1d7458ee4f424b7c16ff3",
+          "sha256": "577419449b668facaafabe79ef56db5de574fffa816af96736083b6ba96f39f3",
+          "sha1": "81bd87958d5d381896cb22b17c750ab6d591c1e1",
+          "md5": "8fdd2b4f4da0b583d9995cf294a78e72"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.aspectj",
+          "module": "aspectjweaver",
+          "version": {
+            "requires": "1.9.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-aspects-5.3.13.jar",
+          "url": "spring-aspects-5.3.13.jar",
+          "size": 47230,
+          "sha512": "1c556b2fe11eefac7d0e9e714690550184126ea1e16499d39833902b121bf1b1cd2d1cddd1593594bb744d4b006a55f411045cd366f1d7458ee4f424b7c16ff3",
+          "sha256": "577419449b668facaafabe79ef56db5de574fffa816af96736083b6ba96f39f3",
+          "sha1": "81bd87958d5d381896cb22b17c750ab6d591c1e1",
+          "md5": "8fdd2b4f4da0b583d9995cf294a78e72"
+        }
+      ]
+    }
+  ]
+}

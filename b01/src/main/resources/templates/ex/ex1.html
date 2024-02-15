@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ex1.html</title>
+</head>
+<body>
+    <h4>[[${list}]]</h4>
+    <hr/>
+    <h4 th:text="${list}"></h4>
+    <br>
+
+    <h3>반복문과 제어문 처리</h3>
+    <h4>반복이 필요한 태그에 'th:each' 적용</h4>
+    <ul>
+        <li th:each="str: ${list}" th:text="${str}"></li>
+    </ul>
+
+    <h4>'th:block' 이라는 별도의 태그 이용</h4>
+    <ul>
+        <th:block th:each="str: ${list}">
+            <li>[[${str}]]</li>
+        </th:block>
+    </ul>
+
+    <h4>status 변수 : 반복문의 내부 상태에서 변수 추가해서 사용 가능</h4>
+    <ul>
+        <li th:each="str, status: ${list}">
+            [[${status.index}]] -- [[${str}]]
+        </li>
+    </ul>
+
+    <h4>th:if, th:unless : 반복문의 홀수/짝수 구분 처리 예시</h4>
+    <ul>
+        <li th:each="str, status: ${list}">
+            <span th:if="${status.odd}"> ODD -- [[${str}]]</span>
+            <span th:unless="${status.odd}"> EVEN -- [[${str}]]</span>
+        </li>
+    </ul>
+
+    <h4>삼항연산자 : ? 뒤 긍정, : 뒤 부정 //''안의 텍스트는 웹에 출력</h4>
+    <ul>
+        <li th:each="str, status: ${list}">
+            <span th:text="${status.odd} ?'ODD --- ' + ${str}"></span>
+            <span th:text="${status.odd} ? 'ODD --- '+${str} : 'EVEN --- ' +${str}"></span>
+        </li>
+    </ul>
+
+    <h4>th:switch, th:case</h4>
+    <ul>
+        <li th:each="str,status: ${list}">
+            <th:block th:switch="${status.index % 3}">
+                <span th:case="0">0</span>
+                <span th:case="1">1</span>
+                <span th:case="2">2</span>
+            </th:block>
+        </li>
+    </ul>
+
+    <h3>Thymeleaf 링크 처리</h3>
+    <a th:href="@{/hello}">Go to /hello</a><br>
+    <h4>링크의 쿼리 스트링 처리</h4>
+    <a th:href="@{/hello(name='AAA', age=16)}">Go to /hello?name=AAA&age=16</a><br>
+    <a th:href="@{/hello(name='한글처리', age=16)}">Go to /hello (한글처리)</a><br>
+    <a th:href="@{/hello(types=${ {'AA','BB','CC'} }, age=16)}">Go to /hello (마지막)</a>
+
+</body>
+</html>
