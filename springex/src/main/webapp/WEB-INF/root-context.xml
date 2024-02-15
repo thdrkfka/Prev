@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://mybatis.org/schema/mybatis-spring
+       http://mybatis.org/schema/mybatis-spring.xsd">
+
+<!-- 스프링에서의 HikariCP는 application context에서 설정 // 데이터베이스 연결 // ConnectionUtil 이랑 비슷한 역할//-->
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/webdb"></property>
+        <property name="username" value="webuser"></property>
+        <property name="password" value="1234"></property>
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="cachePrepStmts">true</prop>
+                <prop key="prepStmtCacheSize">250</prop>
+                <prop key="prepStmtCacheSqlLimit">2048</prop>
+            </props>
+        </property>
+    </bean>
+
+<!-- hikariConfig 생성자 // 위의 데이터베이스 연결 내용 저장 // -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfig" />
+    </bean>
+
+<!--mybatis 스프링 연동-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- TimeMapper2 // xml로 sql 분리하기 // -->
+        <property name="mapperLocations" value="classpath:/mappers/**/*.xml"/>
+    </bean>
+
+<!-- TimeMapper 인터페이스의 sql문이 작동해서 콘솔창에 현재시각이 뜬 이유
+     => mybatis의 @Select 어노테이션을 이용해서 쿼리를 작성했고 스캔해서 mapper의 어노테이션이 먹힌 듯..? 자세히 알아보기!!! -->
+    <mybatis:scan base-package="org.zerock.springex.mapper"></mybatis:scan>
+
+<!-- ModelMapperConfig를 스프링 빈으로 인식 -->
+    <context:component-scan base-package="org.zerock.springex.config"/>
+    <!-- TodoServiceImpl을 스프링 빈으로 인식 -->
+    <context:component-scan base-package="org.zerock.springex.service"/>
+
+<!--    <bean class="org.zerock.springex.sample.SampleDAO"></bean>-->
+<!--    <bean class="org.zerock.springex.sample.SampleService"></bean>-->
+
+</beans>

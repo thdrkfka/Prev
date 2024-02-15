@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.zerock'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.9.2'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    //스프링
+    //기본적인 스프링 사용을 위함. @Autowired 등..
+    implementation group: 'org.springframework', name: 'spring-core', version: '5.3.20'
+    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.20'
+    implementation group: 'org.springframework', name: 'spring-test', version: '5.3.20'
+
+    //스프링에서의 웹과 관련된 작업을 위함.
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.20'
+
+    //MyBatis와 스프링 연동
+    implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.20'
+    implementation group: 'org.springframework', name: 'spring-tx', version: '5.3.20'
+
+    //MyBatis
+    implementation 'org.mybatis:mybatis:3.5.9'
+    implementation 'org.mybatis:mybatis-spring:2.0.7'
+
+    //lombok 롬복
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    //log4j2 콘솔 화면 출력용
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
+
+    //자바 스탠다드 태그 라이브러리
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
+
+    //마리아db 자바 데이터베이스 연동
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.0.4'
+
+    //HikariCP 데이터베이스 연동하기 위한 Driver, url, username, password 등!!
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
+
+    //Model-Mapper //DTO와 VO 변환하기 위함.
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
+
+    //DTO의 검증을 위한 Validate 관련 라이브러리
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.2.1.Final'
+}
+
+test {
+    useJUnitPlatform()
+}
